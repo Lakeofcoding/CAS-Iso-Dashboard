@@ -6,7 +6,16 @@ from pathlib import Path
 from datetime import datetime
 
 
-COLOR_SEQ = ["#2563eb", "#16a34a", "#f97316", "#dc2626", "#7c3aed", "#0891b2", "#d97706"]
+# Custom CSS laden
+st.markdown(
+    """
+    <style>
+    @import url('assets/style.css');
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 
 
 tab_overview, tab_inf, tab_time = st.tabs(
