@@ -22,6 +22,18 @@ tab_overview, tab_inf, tab_time = st.tabs(
     ["Überblick", "Infektionen", "Zeitverlauf"]
 )
 
+
+
+# Corporate Identity Farbschema
+COLOR_SEQ = [
+    "#1B4F72",  # Primär Blau
+    "#2874A6",  # Hellblau
+    "#17A589",  # Akzent Grün
+    "#D35400",  # Orange
+    "#839192",  # Grau
+]
+
+
 # Datumsspalten automatisch identifizieren
 
 def convert_date_columns_smart(df: pd.DataFrame, min_fraction: float = 0.7) -> pd.DataFrame:

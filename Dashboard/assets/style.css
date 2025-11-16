@@ -1,0 +1,35 @@
+/* App Hintergrund */
+.stApp {
+    background-color: #F7F9FB;
+}
+
+/* Titel */
+h1, h2, h3 {
+    color: #1B4F72 !important;
+    font-weight: 600 !important;
+}
+
+/* Sidebar */
+.css-1d391kg {
+    background-color: #E8EEF3;
+    border-right: 1px solid #D4DCE3;
+}
+
+/* Buttons */
+.stButton > button {
+    background-color: #1B4F72;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-weight: 600;
+}
+.stButton > button:hover {
+    background-color: #2874A6;
+}
+
+/* KPI Styling */
+[data-testid="stMetricValue"] {
+    color: #1B4F72;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
