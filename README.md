@@ -1,7 +1,7 @@
 🧠 CAS-Dashboard – Medizinische Isolationen
 
 Interaktiver Prototyp für die Visualisierung medizinischer Isolationsfälle
-(CAS-Abschlussarbeit – Prototyp-Entwurf)
+
 
 🚀 Überblick
 
@@ -14,7 +14,7 @@ automatischer - und intelligenter - Datumsinterpretation
 
 KPI-Übersicht
 
-aktueller Fall-Liste nach Stichtag
+aktueller Fallliste nach Stichtag
 
 Infektionsverteilung
 
@@ -145,5 +145,6 @@ Startdatum Isolation
 Stopdatum Isolation
 
 Raum_ID
+
 
 Datumsfelder werden heuristisch erkannt.
