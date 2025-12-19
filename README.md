@@ -102,6 +102,11 @@ Infektion
 
 Start / Stop
 
+-----------------------------------------------
+EINRICHTUNG
+-----------------------------------------------
+INFO: 
+
 📁 Projektstruktur
 CAS-Iso-Dashboard/
 │
@@ -118,10 +123,16 @@ CAS-Iso-Dashboard/
 ├── requirements.txt          # Python-Abhängigkeiten
 └── README.md                 # Projektdokumentation
 
-💾 Installation
+
+
+💾 Installation:
+
+
 1️⃣ Repository klonen
 git clone https://github.com/Lakeofcoding/CAS-Iso-Dashboard.git
 cd CAS-Iso-Dashboard
+
+(in diesem Fall erübrigt, da mittels ZIP Datei)
 
 2️⃣ Virtuelle Umgebung erstellen
 python -m venv .venv
@@ -141,13 +152,22 @@ source .venv/bin/activate
 3️⃣ Abhängigkeiten installieren
 pip install -r requirements.txt
 
+
+START DES DASHBOARDS:
+
+
 ▶️ Dashboard starten
 python -m streamlit run dashboard/app.py
+
 
 
 Anschließend erreichbar unter:
 
 http://localhost:8501
+
+
+
+SONSTIGE INFORMATIONEN:
 
 📂 Daten-Upload & Datenlogik
 Unterstützte Formate
@@ -166,12 +186,6 @@ Datumsfeldern
 
 Start- und Endspalten
 
-robuste Behandlung fehlender Enddaten
-
-Stichtagslogik:
-
-aktiv, wenn
-Startdatum ≤ Stichtag ≤ Stopdatum oder Stopdatum leer
 
 🧪 Erwartete Datenfelder (Beispiele)
 
