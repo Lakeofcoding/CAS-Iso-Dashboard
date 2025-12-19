@@ -1,134 +1,181 @@
 🧠 CAS-Dashboard – Medizinische Isolationen
 
-Interaktiver Prototyp für die Visualisierung medizinischer Isolationsfälle
-
+Interaktives Dashboard zur Analyse und Visualisierung medizinischer Isolationsfälle in klinischen Einrichtungen.
 
 🚀 Überblick
 
-Dieses Projekt enthält einen funktionsfähigen Prototyp eines Dashboards zur Visualisierung von Isolationen in medizinischen Einrichtungen.
-Der Fokus liegt auf:
+Dieses Projekt stellt einen funktionsfähigen Prototyp eines analytischen Dashboards dar, das medizinische Isolationsdaten strukturiert auswertet und visuell aufbereitet.
+Der Fokus liegt auf transparenter Entscheidungsunterstützung, zeitlicher Dynamik und räumlicher Verteilung von Fällen.
 
-interaktiven Filtern (Station, Zentrum, Klinik)
+Das Dashboard wurde mit Python, Streamlit und Plotly umgesetzt und ist vollständig interaktiv.
 
-automatischer - und intelligenter - Datumsinterpretation
+✨ Zentrale Funktionen
 
-KPI-Übersicht
+intelligente, heuristische Datums- und Intervallerkennung
 
-aktueller Fallliste nach Stichtag
+mehrstufige Filterlogik (Station → Klinik → Zentrum)
 
-Infektionsverteilung
+Stichtagsbasierte Berechnung aktiver Fälle
 
-Zeitreihenanalyse der aktiven Fälle
+KPI-Übersicht mit automatischer Risikoabschätzung
 
-modernem UI-Design
+Detailansicht aller aktiven Isolationen (scrollbar)
 
-Das Dashboard ist in Python mit Streamlit und Plotly implementiert.
+interaktive Heatmap auf Grundrissbasis
+
+Infektionsverteilung & Zeitreihenanalyse
+
+modernes, professionelles UI
+
+🧭 Navigation (Reiter)
+
+Das Dashboard ist in vier Reiter unterteilt:
+
+📊 Überblick
+
+zentrale KPIs:
+
+Gesamtfälle (gefiltert)
+
+aktive Fälle am Stichtag
+
+Anzahl Infektionsarten
+
+offene Fälle (ohne Enddatum)
+
+komprimierte Lageeinschätzung
+
+🗺️ Heatmap & Infektionen
+
+Balkendiagramm:
+
+Verteilung nach Infektionstyp
+
+Modus: alle Fälle oder nur aktive
+
+Interaktive Grundriss-Heatmap
+
+diffuse Heatmap oder Punktmarkierungen
+
+automatische Parameteroptimierung
+
+Filter nach Infektionstyp
+
+visuelle Hotspot-Analyse auf Raumebene
+
+📈 Zeitverlauf
+
+Entwicklung aktiver Fälle über die Zeit
+
+monatliche Aggregation
+
+Modi:
+
+Gesamtverlauf (eine Linie)
+
+Aufschlüsselung nach Infektionsarten (Multi-Line)
+
+dynamische Zeitachse basierend auf realen Start-/Stop-Daten
+(kein künstlicher Abbruch mehr bei einzelnen Monaten)
+
+📋 Detailansicht – Aktuelle Isolationen
+
+„Aktuelle Isolationen im Detail“
+
+zeigt die ersten 20 aktiven Fälle
+
+weitere Einträge scrollbar
+
+sortiert nach Startdatum (absteigend)
+
+strukturierte Spalten:
+
+Klinik
+
+Zentrum
+
+Station
+
+Raum_ID
+
+Infektion
+
+Start / Stop
 
 📁 Projektstruktur
 CAS-Iso-Dashboard/
 │
 ├── dashboard/
-│   ├── app.py            # Hauptanwendung
-│   ├── assets/
-│   │     └── style.css   # Layout & Farbtheme
+│   ├── app.py                # Hauptanwendung
+│   └── assets/
+│       ├── grundriss.png     # Original-Grundriss
+│       └── derived/          # bereinigte / optimierte Assets
 │
 ├── data/
-│   ├── raw/              # Originaldaten / Dummy-Daten
-│   └── processed/        # vorbereitete Datensätze
+│   ├── raw/                  # Original- / Dummy-Daten
+│   └── processed/            # vorbereitete Datensätze
 │
-├── requirements.txt      # benötigte Python-Pakete
-└── README.md             # (diese Datei)
+├── requirements.txt          # Python-Abhängigkeiten
+└── README.md                 # Projektdokumentation
 
 💾 Installation
-1. Repository klonen
-git clone git@github.com:Lakeofcoding/CAS-Iso-Dashboard.git
+1️⃣ Repository klonen
+git clone https://github.com/Lakeofcoding/CAS-Iso-Dashboard.git
 cd CAS-Iso-Dashboard
 
-2. Python-Umgebung erstellen
+2️⃣ Virtuelle Umgebung erstellen
 python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
 
-3. Abhängigkeiten installieren
+
+Aktivieren:
+
+Windows:
+
+.venv\Scripts\activate
+
+
+macOS / Linux:
+
+source .venv/bin/activate
+
+3️⃣ Abhängigkeiten installieren
 pip install -r requirements.txt
 
 ▶️ Dashboard starten
 python -m streamlit run dashboard/app.py
 
 
-Das Dashboard öffnet sich dann unter:
+Anschließend erreichbar unter:
 
 http://localhost:8501
 
-📊 Funktionsumfang
-🔹 Daten-Upload
+📂 Daten-Upload & Datenlogik
+Unterstützte Formate
 
-CSV / Excel
+CSV
 
-automatische Erkennung von Semikolon/Komma
+Excel (.xlsx, .xls)
 
-automatische Erkennung von Datumsfeldern
+Intelligente Verarbeitung
 
-Erkennung von Start/Stop-Spalten
+automatische Erkennung von:
 
-🔹 Filter
+Trennzeichen (, / ;)
 
-Station
+Datumsfeldern
 
-Zentrum (abhängig von Station)
+Start- und Endspalten
 
-Klinik (abhängig von Station/Zentrum)
+robuste Behandlung fehlender Enddaten
 
-Zurücksetzen mit einem Klick
+Stichtagslogik:
 
-🔹 Kennzahlen
+aktiv, wenn
+Startdatum ≤ Stichtag ≤ Stopdatum oder Stopdatum leer
 
-Anzahl Fälle
+🧪 Erwartete Datenfelder (Beispiele)
 
-Aktive Fälle am Stichtag
-
-Unterschiedliche Infektionen (aktiv)
-
-Offene Fälle (Enddatum fehlt)
-
-🔹 Tabellenansicht
-
-alle aktiven Fälle zum Stichtag
-
-sortiert nach Startdatum absteigend
-
-logisch strukturierte Spalten
-
-🔹 Fälle pro Infektion
-
-Modus: gesamt oder aktiv am Stichtag
-
-modernes Bar-Chart (Plotly)
-
-🔹 Zeitverlauf
-
-aktive Fälle pro Monat
-
-Modus:
-
-eine Linie gesamt
-
-mehrere Linien nach Infektionsart
-
-Multiselect für Infektionen
-
-🖌️ Design & Farben
-
-Ein modernes Farbschema ist hinterlegt in:
-
-dashboard/assets/style.css
-
-
-Streamlit lädt dieses Design beim Start automatisch.
-Das Theme wurde neutral-professionell gehalten (Blau-Grautöne).
-
-🔍 Datenbasis
-
-Die App erwartet Spalten wie:
+Die App ist flexibel, erkennt aber typischerweise:
 
 fallnummer
 
@@ -140,11 +187,10 @@ Zentrum
 
 Klinik
 
-Startdatum Isolation
-
-Stopdatum Isolation
-
 Raum_ID
 
+Startdatum (z. B. Startdatum Isolation)
 
-Datumsfelder werden heuristisch erkannt.
+Stopdatum (z. B. Stopdatum Isolation)
+
+Datumsfelder werden heuristisch erkannt – exakte Spaltennamen sind nicht zwingend erforderlich.
